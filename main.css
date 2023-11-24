@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none !important;
+    box-sizing: border-box;
+}
+
+
+#layout {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 36.4px 80px 800px;
+    grid-template-areas:
+    "top-bar top-bar" 
+    "menu menu" 
+    "banner-content banner-content ";
+}
+
+/* top-bar-style */
+.top-bar{
+    grid-area: top-bar;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0072bd;
+    transition: all .5s ease-in-out;
+    padding: 4px 10px;
+    height: 36.4px;
+}
+.top-bar a{
+    text-decoration: none !important;
+    color: aliceblue;
+    font-weight: 600;
+}
+.top-bar .top-bar-right button{
+    padding: 3px 15px;
+    border-radius: 5px;
+    background: #f8c218;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 600;
+    border: none;
+    margin: 0 5px;
+}
+.top-bar .top-bar-right .closetop{
+    font-size: 14px;
+    margin: 0 10px;
+}
+/* banner style */
+.carouselExample {
+    position: relative;
+    width: 100%;
+}
+.carousel-inner img{
+    width: 100%;
+}
+/* menu style*/
+.menu-container {
+    grid-area: menu;
+}
+.main-menu{
+    position: absolute;
+    z-index: 1;
+}
+.menu-container .main-menu{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.41);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+.menu-container .main-menu .logo{
+    width: 173px;
+}
+.menu-container .main-menu ul{
+    display: flex;
+    line-height: 80px;
+    margin: 0;
+}
+.menu-container .main-menu ul li{
+    margin:  0 15px;
+    padding: 0 10px;
+}
+.menu-container .main-menu ul li a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.menu-container .main-menu ul li button{
+    border: none;
+    padding: 11px 30px;
+    background-color: #f44c28;
+    border-radius: 6px;
+    height: auto;
+    line-height: normal;
+    color: aliceblue;
+}
+
