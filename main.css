@@ -10,13 +10,21 @@
 #layout {
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 36.4px 80px 800px;
+    grid-template-rows: 36.4px 80px 575px;
     grid-template-areas:
     "top-bar top-bar" 
     "menu menu" 
     "banner-content banner-content ";
 }
-
+.book-now{
+    border: none;
+    padding: 11px 30px;
+    background-color: #f44c28;
+    border-radius: 6px;
+    height: auto;
+    line-height: normal;
+    color: aliceblue;
+}
 /* top-bar-style */
 .top-bar{
     grid-area: top-bar;
@@ -47,17 +55,10 @@
     font-size: 14px;
     margin: 0 10px;
 }
-/* banner style */
-.carouselExample {
-    position: relative;
-    width: 100%;
-}
-.carousel-inner img{
-    width: 100%;
-}
 /* menu style*/
 .menu-container {
     grid-area: menu;
+    position: relative;
 }
 .main-menu{
     position: absolute;
@@ -65,36 +66,170 @@
 }
 .menu-container .main-menu{
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.41);
     height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 50px;
 }
-.menu-container .main-menu .logo{
-    width: 173px;
+.menu-container .main-menu #toggle{
+    cursor: pointer;
+    display: none;
 }
-.menu-container .main-menu ul{
+.menu-container .main-menu #toggle i{
+    font-size: 30px;
+}
+.menu-container .main-menu .logo{
+    width: 170px;
+}
+.menu-container .main-menu .main--menu{
     display: flex;
     line-height: 80px;
     margin: 0;
 }
-.menu-container .main-menu ul li{
+.menu-container .main-menu .main--menu li{
     margin:  0 15px;
     padding: 0 10px;
 }
-.menu-container .main-menu ul li a{
+.menu-container .main-menu .main--menu li a{
     text-decoration: none;
     color: aliceblue;
 }
-.menu-container .main-menu ul li button{
-    border: none;
-    padding: 11px 30px;
-    background-color: #f44c28;
-    border-radius: 6px;
-    height: auto;
-    line-height: normal;
+.open{
+    
+}
+/* banner style */
+.carouselExample {
+    user-select: none;
+    position: relative;
+    width: 100%;
+}
+.carousel-inner .w-100{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-inner .carousel-item .banner-content{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    "content-left content-right";
+    width: 100%;
+    justify-content: center;
+    position: absolute;
+    top: 35%;
     color: aliceblue;
+    padding: 0 20%;
+    user-select: none;
+}
+/* banner slection */
+.carousel-inner .carousel-item .banner-content:hover{
+    cursor:  grab;
+}
+.banner-content .banner-content-left{
+    grid-area: content-left;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column ;
+    float: right;
+    align-items: flex-end;
+    border-right: 3px solid #4f4f4f;
+}
+.banner-content .banner-content-left h2{
+    font-family: "Satisfy";
+    color: #f44c28 ;
+    font-size: 35px;
+    font-weight: 400;
+    position: relative;
+    margin: 0;
+}
+.banner-content .banner-content-left h1{
+    font-size: 6.5rem;
+    font-weight: bold;
+}
+.banner-content .banner-content-left pre{
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: 400;
+}
+.banner-content .banner-content-right{
+    grid-area: content-right;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column ;    
+    justify-content: space-around;
+}
+.banner-content .banner-content-right img{
+    width: 135px;
+}
+.banner-content .banner-content-right h1{
+    font-size: 1.5rem;
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+.banner-content .banner-content-right pre{
+    font-family: 'Yantramanav', sans-serif;
+    opacity: 0.8;
 }
 
+.banner-content .banner-content-right ul li{
+    position: relative;
+    font-size: 18px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 25px;
+    padding: 5px 0;
+}
+.banner-content .banner-content-right ul li::before{
+    content: "";
+    background-color: #f44c28;
+    border-radius: 10px;
+    height: 5px;
+    width: 5px;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.carousel-control-prev, .carousel-control-next{
+    margin-top: 80px;
+}
+/* màn hình có tỷ lệ bé hơn hoặc bằng 768px  */
+@media screen and (max-width:768px) {
+    .main--menu{
+        flex-direction: column;
+        text-align: center;
+        background-color: #fff;
+        position:absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        padding: 0 ;
+        margin: 10px 0;
+        line-height: 40px !important;
+    }
+    .main--menu li  {
+        width: 100px;
+        border-bottom: 1px solid #4f4f4f;
+    }
+    .main--menu li a {
+        width: 100%;
+        text-align: center;
+        color: #4f4f4f !important;
+    }
+    .main--menu li button {
+        margin: 10px 0;
+    }
+    .menu-container .main-menu #toggle{
+        display: block;
+        position: absolute;
+        right: 20px;
+        z-index: 2;
+    }
+    .menu-container .main-menu .logo{
+        position: absolute;
+        left: 20px;
+    }
+
+}
